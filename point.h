@@ -10,7 +10,7 @@ private:
     Fraction x, y;
 public:
 
-    Point (Fraction x1 = 0, Fraction y1 = 0);
+    Point (Fraction x = 0, Fraction y = 0);
     ~Point() = default;
 
     Fraction getX() {return x;};
