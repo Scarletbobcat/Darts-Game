@@ -5,7 +5,7 @@ using namespace std;
 
 //This will take the polygons as a parameter and calculate the area of the polygon through cross product
 Fraction areaOfPolygon(Point (&polygons)[100][20], int poly, int vertices){
-    Fraction temp(1, 2);
+    Fraction half(1, 2);
     Fraction total(0,1);
     int i;
     Point k, j;
@@ -15,7 +15,7 @@ Fraction areaOfPolygon(Point (&polygons)[100][20], int poly, int vertices){
         total = total + k * j;
     }
     total = total + polygons[poly][vertices-1] * polygons[poly][0];
-    return (temp * (total));
+    return (half * (total));
 }
 
 bool intersect(Point p1, Point p2, Point q1, Point q2, Point &x){
@@ -29,7 +29,7 @@ bool intersect(Point p1, Point p2, Point q1, Point q2, Point &x){
     if (d != zero1){
         t = (v * s)/(d);
         u = (v * r)/(d);
-        if ((t > 0 && t < 1) && (u > 0 && u < 1)){
+        if ((t >= 0 && t <= 1) && (u >= 0 && u <= 1)){
             x = p1 + r * t;
             return true;
         }
@@ -105,8 +105,8 @@ int main() {
     int numVertices[100];
     Point polygons[100][20];
 
-    for (int i=0; i<10; i++) {
-        for (int k=0; k<100; k++) {
+    for (int i = 0; i < 10; i++) {
+        for (int k = 0; k < 100; k++) {
             ifDartScore[i][k] = false;
         }
     }
@@ -126,15 +126,15 @@ int main() {
     cin >> numDarts;
     for (int i = 0; i < numDarts; i++) {
         cin >> darts;
-        cout << "Dart: " << darts;
         for (int k = 0; k < numPolygons; k++) {
             ifDartScore[i][k] = isInside(darts, dartboard, polygons, numVertices[k], k);
         }
     }
 
     for (int i = 0; i < numDarts; i++) {
-        for (int h = 0; h < sizeof(ifDartScore[i]); h++) {
-            while (int j = 1 < numDarts){
+        for (int h = 0; h < numPolygons; h++) {
+            int j = i + 1;
+            while (j < numDarts){
                 if (ifDartScore[i][h] && ifDartScore[i][h] == ifDartScore[j][h]) {
                     ifDartScore[i][h] = false;
                 }
