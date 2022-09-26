@@ -114,16 +114,31 @@ int main() {
     //This code block gets the inputs from the user and saves them into variables
     cin >> dartboard;
     Fraction dartboardArea(dartboard.getX() * dartboard.getY());
-    cin >> numPolygons;
+    do {
+        cin >> numPolygons;
+        if ((numPolygons < 0) || (numPolygons > 100)) {
+            cout << "Please input a valid number\n";
+        }
+    } while ((numPolygons < 0 ) || (numPolygons > 100));
     for (int k = 0; k < numPolygons; k++) {
-        cin >> numVertices[k];
+        do {
+            cin >> numVertices[k];
+            if ((numVertices[k] < 3) || (numVertices[k] > 20)){
+                cout << "Please input a valid number\n";
+            }
+        } while ((numVertices[k] < 3) || (numVertices[k] > 20));
         for (int i = 0; i < numVertices[k]; i++) {
             Point temp;
             cin >> temp;
             polygons[k][i] = temp;
         }
     }
-    cin >> numDarts;
+    do {
+        cin >> numDarts;
+        if ((numDarts < 0) || (numDarts > 10)) {
+            cout << "Please input a valid number\n";
+        }
+    } while ((numDarts < 0 ) || (numDarts > 10));
     for (int i = 0; i < numDarts; i++) {
         cin >> darts;
         for (int k = 0; k < numPolygons; k++) {
