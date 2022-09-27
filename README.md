@@ -1,7 +1,7 @@
 # Darts Game
 This is a game of darts where the player can determine the size of the dartboard (a rectangle), the polygons that need to be hit to score, and where the darts land.
 
-## Note that all points should be input as fractions, the number of polygons cannot be more than 100, the number of vertices must be between 3 and 20, and the number of darts thrown cannot exceed 10.
+######Note that all points should be input as fractions, the number of polygons cannot be more than 100, the number of vertices must be between 3 and 20, and the number of darts thrown cannot exceed 10.
 1. There will be two points used to create a rectangular dartboard. The user input will be the corner opposite of (0,0)
 2. The user should then input how many polygons they would like inside the dartboard. This will be used to calculate the score - if a dart lands in this spot, the player's
 score will increase
