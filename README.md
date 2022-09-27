@@ -1,7 +1,7 @@
 # Dartboard Game
 
 This game will ask for different inputs. 
-## Note that all points should be input as fractions
+## Note that all points should be input as fractions, the number of polygons cannot be more than 100, the number of vertices must be between 3 and 20, and the number of darts thrown cannot exceed 10.
 1. There will be two points used to create a rectangular dartboard. The user input will be the corner opposite of (0,0)
 2. The user should then input how many polygons they would like inside the dartboard. This will be used to calculate the score - if a dart lands in this spot, the player's
 score will increase
